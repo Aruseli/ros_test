@@ -1,4 +1,4 @@
-import { Grid, makeStyles, Typography } from '@material-ui/core';
+import { Grid, makeStyles, Typography, useMediaQuery, useTheme } from '@material-ui/core';
 
 import React from 'react';
 import Countdown from "react-countdown";
@@ -25,10 +25,12 @@ const Completionist = () => <Typography variant='h3' component='div' color='prim
 
 const DateTimer = ({days, hours, minutes, seconds}:{days: number; hours: number; minutes: number; seconds: number;}) => {
   const classes = useStyles();
+  const theme = useTheme();
+  const matchesXs = useMediaQuery(theme.breakpoints.between('xs', 'sm'));
 
-  return (<Grid container direction='column' alignItems='flex-end' justify='flex-end'> 
-      <Grid item xs={12} sm={4} style={{paddingBottom: 16}}><Typography variant='h4' component='div'>До начала семинара осталось:</Typography></Grid>
-      <Grid item xs={12} sm={4}>
+  return (<Grid container direction='column' alignItems={matchesXs ? 'center' : 'flex-end'} justify={matchesXs ? 'center' : 'flex-end'}> 
+      <Grid item xs={12} style={{padding: '16px 0'}}><Typography variant='h4' component='div'>До начала семинара осталось:</Typography></Grid>
+      <Grid item xs={12}>
         <Grid container direction='row' alignItems='center' justify='space-between' spacing={2}>
           <Grid item xs={3}>
             <div className={classes.dateCard}>
