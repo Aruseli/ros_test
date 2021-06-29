@@ -60,7 +60,7 @@ const DateTimer = ({days, hours, minutes, seconds}:{days: number; hours: number;
   )
 }
 
-const renderer = ({ days, hours, minutes, seconds, completed }) => {
+const renderer = ({ days, hours, minutes, seconds, completed }:{days: number; hours: number; minutes: number; seconds: number; completed: any;}) => {
   
   if(completed){
     <Completionist />
@@ -71,7 +71,7 @@ const renderer = ({ days, hours, minutes, seconds, completed }) => {
   }
 };
 
-export const Timer = ({ days, hours, minutes, seconds, completed }) => {
+export const Timer = () => {
 
   const date = new Date("Sept 29 2021");
   
