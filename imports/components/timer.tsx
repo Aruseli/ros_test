@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Completionist = () => <Typography variant='h3' component='div' color='primary'>Семинар начался!</Typography>;
 
-const DateTimer = ({days, hours, minutes, seconds}) => {
+const DateTimer = ({days, hours, minutes, seconds}:{days: number; hours: number; minutes: number; seconds: number;}) => {
   const classes = useStyles();
 
   return (<Grid container direction='column' alignItems='flex-end' justify='flex-end'> 
